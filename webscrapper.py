@@ -2,6 +2,7 @@ import requests
 import bs4 as bs
 import pandas as pd
 import re
+#please use your own user-agent to try or practice
 headers={'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0',
     'From': 'data-x@gmail.com' }
 d=pd.DataFrame()
@@ -37,3 +38,4 @@ for o in district:
         except:
             q=False
             print('error')
+d.to_csv('/users/steven/desktop/data.csv')
