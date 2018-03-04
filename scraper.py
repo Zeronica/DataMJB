@@ -25,7 +25,7 @@ def populate_row(row_index, data):
     data.loc[row_index, 'Property management company'] =results[9]
 
 def populate_batch_row(start = 0, batch_size = 1000):
-    data = pd.read_csv('data_populated_all.csv')
+    data = pd.read_csv('data_populated_all.csv').drop(['Unnamed: 0'], axis=1)
 
     end = start + batch_size
 
@@ -40,7 +40,7 @@ def populate_batch_row(start = 0, batch_size = 1000):
     data.to_csv('data_populated_all.csv')
     print("written to file")
 
-data = pd.read_csv('data_populated_all.csv')
+data = pd.read_csv('data_populated_all.csv').drop(['Unnamed: 0'], axis=1)
 
-for i in range(4000, len(data), 1000):
+for i in range(0, len(data), 1000):
     populate_batch_row(i, 1000)
